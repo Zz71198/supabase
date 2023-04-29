@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SectionContainer from '../Layouts/SectionContainer'
 import { motion } from 'framer-motion'
+import BackedBy from '../BackedBy'
 
 const Card = ({
   classname,
@@ -51,7 +52,7 @@ const opacityVariant = {
 
 const Features = () => {
   return (
-    <SectionContainer className="space-y-8 max-w-7xl pb-0 pt-16 md:!pt-0">
+    <SectionContainer className="space-y-8 max-w-7xl pt-4 md:!pt-0">
       <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-6">
         <Card
           url={Solutions['database'].url}
@@ -143,7 +144,7 @@ const Features = () => {
             <div className="absolute inset-0 z-0">
               <motion.div className="absolute inset-0 z-10" variants={opacityVariant}>
                 <Image
-                  src="/images/index/edge-dark-hover.svg"
+                  src="/images/index/edge-dark-hover.jpg"
                   alt="Supabase Edge Functions feature, hover image with glow"
                   layout="fill"
                   objectPosition="50% 50%"
@@ -152,7 +153,7 @@ const Features = () => {
                 />
               </motion.div>
               <Image
-                src="/images/index/edge-dark.svg"
+                src="/images/index/edge-dark.jpg"
                 alt="Supabase Edge Functions feature"
                 layout="fill"
                 objectPosition="50% 50%"
@@ -163,6 +164,7 @@ const Features = () => {
           }
         />
       </dl>
+      <BackedBy className="block md:hidden" />
     </SectionContainer>
   )
 }

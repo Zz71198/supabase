@@ -4,26 +4,31 @@ import { Button, IconBookOpen } from 'ui'
 import SectionContainer from '../Layouts/SectionContainer'
 import styles from './hero.module.css'
 import { useWindowSize } from 'react-use'
+import { useRouter } from 'next/router'
+import BackedBy from '../BackedBy'
 
 const Hero = () => {
+  const { basePath } = useRouter()
   const divRef = useRef(null)
   const { width } = useWindowSize()
 
   useEffect(() => {
     const newHeight =
-      width < 800 ? 100000 / width + 50 : width > 1800 ? 30000 / width : (70000 / width) * 2
+      width < 768 ? 100000 / width : width > 1800 ? 30000 / width : (70000 / width) * 2
+
     if (divRef?.current) {
       ;(divRef.current as HTMLDivElement).style.height = `${Math.round(newHeight)}px`
+      console.log(width, newHeight)
     }
   }, [width])
 
   return (
     <div className="relative">
-      <SectionContainer>
+      <SectionContainer className="md:py-16 lg:py-20">
         <div className="relative">
           <div className="mx-auto">
             <div className="mx-auto max-w-2xl lg:col-span-6 lg:flex lg:items-center justify-center text-center">
-              <div className="lg:h-[40vh] lg:min-h-[300px] lg:max-h-[400px] md:py-4 flex flex-col items-center justify-center sm:mx-auto md:w-3/4 lg:mx-0 lg:w-full gap-4 lg:gap-8">
+              <div className="lg:h-[50vh] lg:min-h-[300px] lg:max-h-[450px] flex flex-col items-center justify-center sm:mx-auto md:w-3/4 lg:mx-0 lg:w-full gap-4 lg:gap-8">
                 <div>
                   <h1
                     className="
@@ -58,33 +63,7 @@ const Hero = () => {
                     </a>
                   </Link>
                 </div>
-                {/* <div className="flex flex-col gap-4">
-                  <small className="small text-xs">backed by</small>
-                  <div className="w-full sm:max-w-lg lg:ml-0">
-                    <div className="flex flex-wrap items-center justify-start gap-y-8 sm:flex-nowrap">
-                      <img
-                        className="h-8 pr-5 sm:h-8 md:pr-10"
-                        src={`${basePath}/images/logos/yc--grey.png`}
-                        alt="Y Combinator"
-                      />
-                      <img
-                        className="relative h-5 pr-5 sm:h-5 md:pr-10"
-                        src={`${basePath}/images/logos/mozilla--grey.png`}
-                        alt="Mozilla"
-                      />
-                      <img
-                        className="relative h-5 pr-5 sm:h-5 md:pr-10"
-                        src={`${basePath}/images/logos/coatue.png`}
-                        alt="Coatue"
-                      />
-                      <img
-                        className="relative h-6 pr-5 sm:h-6 md:pr-10"
-                        src={`${basePath}/images/logos/felicis.png`}
-                        alt="Felicis"
-                      />
-                    </div>
-                  </div>
-                </div> */}
+                <BackedBy className="hidden md:block" />
               </div>
             </div>
           </div>
