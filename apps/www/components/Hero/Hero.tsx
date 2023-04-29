@@ -34,7 +34,7 @@ const Hero = () => {
                   <motion.h1
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 1, ease: [0, 0.13, 0.28, 1], delay: 0.2 }}
+                    transition={{ duration: 1, ease: [0.5, 0.01, 0.28, 1], delay: 0.2 }}
                     className="
                         text-scale-1200
                         text-4xl sm:text-5xl sm:leading-none lg:text-6xl
