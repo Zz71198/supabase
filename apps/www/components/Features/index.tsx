@@ -27,12 +27,12 @@ const Card = ({
     >
       <motion.div
         className={`relative overflow-hidden group/2 flex-1 flex flex-col items-center gap-5 lg:items-start justify-between bg-scale-100
-                  w-full border border-[#232323] rounded-xl h-full px-2 sm:px-6 py-12 shadow-lg`}
+                  w-full border dark:border-scale-300 border-scale-400 rounded-xl h-full px-2 sm:px-6 py-12 shadow-lg`}
         initial="default"
         animate="default"
         whileHover="hover"
       >
-        <div className="relative z-10 flex flex-col items-center mx-auto max-w-xs text-center gap-2 text-white">
+        <div className="relative z-10 flex flex-col items-center mx-auto max-w-xs text-center gap-2 text-scale-1200">
           <h3 className="xs:text-2xl text-xl">{title}</h3>
           <p className="text-sm lg:text-base text-scale-1100">{subtitle}</p>
         </div>
