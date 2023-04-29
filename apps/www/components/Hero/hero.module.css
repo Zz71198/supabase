@@ -53,18 +53,7 @@
   opacity: 0.3;
   height: 700px;
   filter: blur(40px);
-  background: radial-gradient(ellipse 50% 50% at 50% 50%, #3ecf8e50, transparent);
-}
-
-.triangle-shape {
-  width: 200vw;
-  height: 200vw;
-  transform: rotate(45deg) translate3d(-100vw, -100vw, 0);
-  background: radial-gradient(
-    ellipse 64% 64% at 40% 40%,
-    var(--colors-brand1),
-    var(--colors-scale1)
-  );
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, #3ecf8e20, transparent);
 }
 
 @media (min-width: 1024px) {

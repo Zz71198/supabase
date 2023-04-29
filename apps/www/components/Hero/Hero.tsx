@@ -6,10 +6,11 @@ import styles from './hero.module.css'
 import { useWindowSize } from 'react-use'
 import { useRouter } from 'next/router'
 import BackedBy from '../BackedBy'
+import { useTheme } from 'common'
 
 const Hero = () => {
-  const { basePath } = useRouter()
   const divRef = useRef(null)
+  const { isDarkMode } = useTheme()
   const { width } = useWindowSize()
 
   useEffect(() => {
@@ -76,11 +77,7 @@ const Hero = () => {
       >
         <div className="absolute w-screen h-screen">
           <div className={['w-full top-0', styles['shape-gradient']].join(' ')} />
-          <div
-            ref={divRef}
-            // className="w-full h-[200px] md:h-[250px] lg:h-[150px] xl:h-[50px] 2xl:h-0 bg-[#171717]"
-            className="w-full bg-[#171717]"
-          />
+          <div ref={divRef} className="w-full bg-scale-100" />
           <div className={['2xl:-mt-52'].join(' ')}>
             <svg
               className={['', styles['triangle-svg']].join(' ')}
@@ -93,7 +90,7 @@ const Hero = () => {
             >
               <path
                 d="M2.16005e-05 -0.000998163L1680 0.129286V234L834.197 1068.2L-0.000248139 234.001L2.16005e-05 -0.000998163Z"
-                fill="#171717"
+                fill={isDarkMode ? '#171717' : '#fbfcfd'}
               />
             </svg>
           </div>
